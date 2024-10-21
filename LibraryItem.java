@@ -76,6 +76,24 @@ public class LibraryItem {
         return this.title;
     }
 
+    public int getAvailability(){
+        return this.availableCopies;
+    }
+
+    public String decreaseAvailable(){
+        if(this.availableCopies == 0){
+            return("There are no more available copies.");
+        }else{
+            this.availableCopies = this.availableCopies - 1;
+            return("Available copies for " + this.title + " has been decreased by 1.");
+        }
+    }
+
+    public String increaseAvailable(){
+        this.availableCopies = this.availableCopies +1;
+        return("Available copies for " + this.title + " has been increased by 1.");
+    }
+
     
 
 
