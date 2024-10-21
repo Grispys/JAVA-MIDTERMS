@@ -18,7 +18,7 @@ public class AuthorManagement {
     public void addItem(LibraryItem item){
         if(item !=null){
             items.add(item);
-            System.out.println("Added" + item + "to this authors bibliography.");
+            System.out.println("Added " + item.getTitle() + " to this authors bibliography.");
         }else{
             System.err.println("Incorrect item to be added.");
         }
@@ -41,7 +41,7 @@ public class AuthorManagement {
 
     public void removeItem(LibraryItem item){
         items.remove(item);
-        System.out.println("Removed" + item + "from this authors bibliography.");
+        System.out.println("Removed " + item.getTitle() + " from this authors bibliography.");
     }
 
     public void deleteAuthor(){
