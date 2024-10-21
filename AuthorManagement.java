@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class AuthorManagement {
     private String name;
+    @SuppressWarnings("unused")
     private String DOB;
     private List<LibraryItem> items;
 
