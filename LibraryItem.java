@@ -69,7 +69,11 @@ public class LibraryItem {
         }else{
             return("Item Details: " + this.title + ", " + this.ISBN + ", " + this.publisher + ", " + this.availableCopies + ", " + this.type + ", " + this.format + ".");
         }
-        
+
+    }
+
+    public String getTitle(){
+        return this.title;
     }
 
     
