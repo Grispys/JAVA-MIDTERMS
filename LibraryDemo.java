@@ -12,7 +12,8 @@ public class LibraryDemo {
         LibraryItem its_a_me = new LibraryItem("its a me", "6432", "Douglas", 2, "book", "audio");
         LibraryItem hello1 = new LibraryItem("hello3435", "166121", "marcus", 5, "periodical", "digital");
         LibraryItem hello2 = new LibraryItem("hell2345o", "1177221", "Douglas", 5, "periodical", "digital");
-        LibraryItem hello3 = new LibraryItem("hell264o", "112641", "marcus", 5, "periodical", "digital");
+        // this ones just to show that the format checks work
+        LibraryItem hello3 = new LibraryItem("hell264o", "112641", "marcus", 5, "periodical", "audio");
 
 
         librarySearch Searcher = new librarySearch();
@@ -29,6 +30,7 @@ public class LibraryDemo {
         author1.removeItem(its_a_me);
         System.out.println(hello.GetInfo());
         hello.EditLibrary("hellow", "232", "notmatthew", 0, "book", "physical");
+        hello2.EditLibrary("This is a story", "232426", "Douglas", 99, "book", "physical");
         author1.getItems();
         author1.deleteAuthor();
         author1.getItems();
