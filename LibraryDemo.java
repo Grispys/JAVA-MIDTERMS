@@ -35,7 +35,7 @@ public class LibraryDemo {
         System.out.println();
         System.out.println();
         System.out.println();
-        // these searches look for books to be borrowed
+        // these searches look for books to be borrowed. the search method uses borrowItem method or removeItem method.
         Searcher.search("Marcus", patron1);
         Searcher.search("Marcus", patron1);
         Searcher.search("Douglas", patron2);
