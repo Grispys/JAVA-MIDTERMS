@@ -4,40 +4,39 @@
 
 public class LibraryDemo {
     
-    
-    
     public static void main(String[] args) {
         AuthorManagement author1 = new AuthorManagement("Marcus","20-01-1999");
         Patron patron1 = new Patron("Drake Rose", "12 aberdeen", "958710", "student");
 
-        LibraryItem item1 = new LibraryItem("hello", "1121", "matthew", 5, "periodical", "digital");
-        LibraryItem item2 = new LibraryItem("its a me", "6432", "matthew", 3, "book", "audio");
+        LibraryItem hello = new LibraryItem("hello", "1121", "marcus", 5, "periodical", "digital");
+        LibraryItem its_a_me = new LibraryItem("its a me", "6432", "marcus", 3, "book", "audio");
         
+        librarySearch Searcher = new librarySearch();
         System.err.println(patron1.getInfo());     
-        patron1.borrowItem(item2);
-        System.out.println(item2.getAvailability());
-        patron1.borrowItem(item2);
-        patron1.borrowItem(item2);
-        patron1.borrowItem(item2);
-        patron1.returnItem(item2);
+
+        System.out.println(its_a_me.getAvailability());
+
 
         
         
-        author1.addItem(item1);
-        author1.addItem(item2);
+        author1.addItem(hello);
+        author1.addItem(its_a_me);
         author1.getItems();
-        author1.removeItem(item2);
-        System.out.println(item1.GetInfo());
-        item1.EditLibrary("hellow", "232", "notmatthew", 0, "book", "physical");
+        author1.removeItem(its_a_me);
+        System.out.println(hello.GetInfo());
+        hello.EditLibrary("hellow", "232", "notmatthew", 0, "book", "physical");
         author1.getItems();
         author1.deleteAuthor();
         author1.getItems();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        Searcher.search("Marcus");
         
         
         
-        
-        System.out.println(item1.GetInfo());
-        System.err.println(item1.DeleteLibrary());
-        System.out.println(item1.GetInfo());
+        System.out.println(hello.GetInfo());
+        System.err.println(hello.DeleteLibrary());
+        System.out.println(hello.GetInfo());
     }
 }

@@ -1,4 +1,11 @@
+import java.util.ArrayList;
+import java.util.List;
+
+
+
 public class LibraryItem {
+    private static List<LibraryItem> fullStock = new ArrayList<>();
+   
     @SuppressWarnings("unused")
     private String title;
     @SuppressWarnings("unused")
@@ -40,8 +47,18 @@ public class LibraryItem {
         this.availableCopies = availableCopies;
         this.format = format;
 
+        fullStock.add(this);
+
     }
 
+
+    public boolean matchesCriteria(String searchCriteria){
+        return title.equalsIgnoreCase(searchCriteria) ||
+        ISBN.equalsIgnoreCase(searchCriteria) ||
+        publisher.equalsIgnoreCase(searchCriteria) ||
+        type.equalsIgnoreCase(searchCriteria) ||
+        format.equalsIgnoreCase(searchCriteria);
+    }
 
     public String EditLibrary(String title, String ISBN, String publisher, int availableCopies, String type, String format){
         this.type = type;
@@ -70,6 +87,15 @@ public class LibraryItem {
             return("Item Details: " + this.title + ", " + this.ISBN + ", " + this.publisher + ", " + this.availableCopies + ", " + this.type + ", " + this.format + ".");
         }
 
+    }
+
+    public static List<LibraryItem> getFullStock(){
+        return fullStock;
+    }
+
+    public String getGeneralInfo(){
+        return "Title: " + title + ", ISBN: " + ISBN + ", publisher: " + publisher +
+               ", Copies: " + availableCopies + ", Type: " + type + ", Format: " + format;
     }
 
     public String getTitle(){
