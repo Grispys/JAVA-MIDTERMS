@@ -9,13 +9,14 @@ public class AuthorManagement {
     private List<LibraryItem> items;
 
 
-
+    // constructor
     public AuthorManagement(String name, String DOB){
         this.name = name;
         this.DOB = DOB;
         this.items = new ArrayList<>();
     };
 
+    // add item to their works
     public void addItem(LibraryItem item){
         if(item !=null){
             items.add(item);

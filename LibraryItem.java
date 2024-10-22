@@ -6,7 +6,7 @@ import java.util.List;
 public class LibraryItem {
     private static List<LibraryItem> fullStock = new ArrayList<>();
    
-    @SuppressWarnings("unused")
+    @SuppressWarnings("unused") //this have problems? for some reason? i dunno it works either way im not looking into it
     private String title;
     @SuppressWarnings("unused")
     private String ISBN;
@@ -19,6 +19,7 @@ public class LibraryItem {
     @SuppressWarnings("unused")
     private String format;
 
+    // constructor to make books and peridoicals.
     public LibraryItem(String title, String ISBN, String publisher, int availableCopies, String type, String format){
         System.out.println();
         System.out.println();
@@ -51,7 +52,7 @@ public class LibraryItem {
 
     }
 
-
+// criteria checker i used to find items when searching
     public boolean matchesCriteria(String searchCriteria){
         return title.equalsIgnoreCase(searchCriteria) ||
         ISBN.equalsIgnoreCase(searchCriteria) ||
@@ -59,7 +60,12 @@ public class LibraryItem {
         type.equalsIgnoreCase(searchCriteria) ||
         format.equalsIgnoreCase(searchCriteria);
     }
+// same deal but exclusively for isbn for when returning a book
+    public boolean selectedItem(String searchCriteria){
+        return ISBN.equalsIgnoreCase(searchCriteria);
+    }
 
+    // allows to edit a library
     public String EditLibrary(String title, String ISBN, String publisher, int availableCopies, String type, String format){
         this.type = type;
         this.title = title;
@@ -88,7 +94,7 @@ public class LibraryItem {
         }
 
     }
-
+    // returns the stock of a library
     public static List<LibraryItem> getFullStock(){
         return fullStock;
     }
@@ -101,11 +107,11 @@ public class LibraryItem {
     public String getTitle(){
         return this.title;
     }
-
+// looks at availble copies
     public int getAvailability(){
         return this.availableCopies;
     }
-
+// adds by one
     public String decreaseAvailable(){
         if(this.availableCopies == 0){
             return("There are no more available copies.");
@@ -114,12 +120,15 @@ public class LibraryItem {
             return("Available copies for " + this.title + " has been decreased by 1.");
         }
     }
-
+// decreases by one
     public String increaseAvailable(){
         this.availableCopies = this.availableCopies +1;
         return("Available copies for " + this.title + " has been increased by 1.");
     }
 
+    public String getISBN(){
+        return this.ISBN;
+    }
     
 
 
