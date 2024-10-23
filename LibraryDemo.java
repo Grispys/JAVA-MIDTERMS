@@ -56,8 +56,12 @@ public class LibraryDemo {
         author1.getItems();
         author1.deleteAuthor();
         author1.getItems();
+        
         System.out.println();
         System.out.println();
+        // delete user check
+        patron2.deletePatron();
+        System.out.println(patron2.getInfo());
         System.out.println();
         // these searches look for books to be borrowed. the search method uses borrowItem method or removeItem method.
        

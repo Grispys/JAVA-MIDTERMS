@@ -83,6 +83,14 @@ public class Patron {
         System.out.println("User has been updated!");
     }
 
+    public void deletePatron(){
+        this.name = null;
+        this.address = null;
+        this.phoneNum = null;
+        this.patronType = null;
+        this.borrowedItemsList = null; 
+    }
+
     // the function that gets called in librarySearch to handle borrowing items. uses the borrowitem function.
     @SuppressWarnings("resource")
     public void selection(){
@@ -112,7 +120,12 @@ public class Patron {
     
     // shows user details
     public String getInfo(){
-        return("User details: " + this.name + ", "+ this.address + ", " + this.phoneNum + ", " + this.patronType);
+        if(this.name == null){
+            return("User does not exist.");
+        }else{
+            return("User details: " + this.name + ", "+ this.address + ", " + this.phoneNum + ", " + this.patronType);
+        }
+        
     }
 
     // returns the list of borroweditems
