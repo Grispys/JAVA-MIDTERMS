@@ -18,6 +18,8 @@ public class LibraryItem {
     private String type;
     @SuppressWarnings("unused")
     private String format;
+    @SuppressWarnings("unused")
+    private AuthorManagement author;
 
     // constructor to make books and peridoicals.
     public LibraryItem(String title, String ISBN, String publisher, int availableCopies, String type, String format){
