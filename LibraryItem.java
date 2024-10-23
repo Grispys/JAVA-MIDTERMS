@@ -112,12 +112,17 @@ public class LibraryItem {
         return this.availableCopies;
     }
 // adds by one
-    public String decreaseAvailable(){
+    public String decreaseAvailable(int amount){
         if(this.availableCopies == 0){
             return("There are no more available copies.");
         }else{
-            this.availableCopies = this.availableCopies - 1;
-            return("Available copies for " + this.title + " has been decreased by 1.");
+            if(amount > this.availableCopies){
+                return("Not enough copies to be borrowed.");
+            }else{
+                this.availableCopies = this.availableCopies - amount;
+                return("Available copies for " + this.title + " has been decreased by "+ amount );
+            }
+          
         }
     }
 // decreases by one
