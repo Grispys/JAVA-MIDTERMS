@@ -74,6 +74,15 @@ public class Patron {
         this.borrowedItemsList = new ArrayList<>();
     }
 
+    public void editPatron(String name, String address, String phoneNum, String patronType){
+        this.name = name;
+        this.address = address;
+        this.phoneNum = phoneNum;
+        this.patronType = patronType;
+        // borrowed item list does not get a new array list as that will remove any history of items from this user
+        System.out.println("User has been updated!");
+    }
+
     // the function that gets called in librarySearch to handle borrowing items. uses the borrowitem function.
     @SuppressWarnings("resource")
     public void selection(){
@@ -110,6 +119,8 @@ public class Patron {
     public List<LibraryItem> getBorrowedItems(){
         return borrowedItemsList;
     }
+
+
 
 
 

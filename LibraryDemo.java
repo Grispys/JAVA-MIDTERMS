@@ -42,6 +42,8 @@ public class LibraryDemo {
 
         Searcher.search("marcus", patron1);
         Searcher.search("Marcus", patron1);
+        // edit patron testing
+        patron1.editPatron("Drunk Nose", "43 notaberdeen ", "10494134", "student");
         Searcher.search("Douglas", patron2);
         Searcher.search("Marcus", patron1);
 
