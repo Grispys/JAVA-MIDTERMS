@@ -3,64 +3,38 @@ import java.util.List;
 
 
 
-public class LibraryItem {
-    private static List<LibraryItem> fullStock = new ArrayList<>();
-   
-    @SuppressWarnings("unused") //this have problems? for some reason? i dunno it works either way im not looking into it
-    private String title;
-    @SuppressWarnings("unused")
-    private String ISBN;
-    @SuppressWarnings("unused")
-    private String publisher;
-    @SuppressWarnings("unused")
-    private int availableCopies;
-    @SuppressWarnings("unused")
-    private String type;
-    @SuppressWarnings("unused")
-    private String format;
-    @SuppressWarnings("unused")
-    private AuthorManagement author;
+public abstract class LibraryItem {
+    protected String Title;
+    protected String ISBN;
+    protected String Publisher;
+    protected int AvailableCopies;
+    protected String Format;
+    protected static List<LibraryItem> FullStock = new ArrayList<>();
 
-    // constructor to make books and peridoicals.
-    public LibraryItem(String title, String ISBN, String publisher, int availableCopies, String type, String format){
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        if(!type.equals("book") && !type.equals("periodical")){
-            System.err.println("Type must be (book) or (Periodical)");
-            return;
-        }
-        if (type.equals("book")) {
-            if (!format.equals("physical") && !format.equals("digital") && !format.equals("audio")) {
-                System.err.println("Books must be physical, digital, or audio.");
-                return;
-            }
-        }else if (type.equals("periodical")) {
-            if (!format.equals("physical") && !format.equals("digital")) {
-                System.err.println("Periodicals must be physical, or digital.");
-                return;
-            }
-        }
-         
-        this.type = type;
-        this.title = title;
+    public LibraryItem(String title, String ISBN, String publisher, int availableCopies, String format) {
+        this.Title = title;
         this.ISBN = ISBN;
-        this.publisher = publisher;
-        this.availableCopies = availableCopies;
-        this.format = format;
+        this.Publisher = publisher;
+        this.AvailableCopies = availableCopies;
+        this.Format = format;
 
-        fullStock.add(this);
-
+        FullStock.add(this);
     }
+
+    // i changed validation from being if statements in the method to be its own method that i override to check different things depending on if its in book or periodical.java
+    protected abstract void ValidateFormat();
+
+
+
+
+
+
 
 // criteria checker i used to find items when searching
     public boolean MatchesCriteria(String searchCriteria){
-        return title.equalsIgnoreCase(searchCriteria) ||
+        return Title.equalsIgnoreCase(searchCriteria) ||
         ISBN.equalsIgnoreCase(searchCriteria) ||
-        publisher.equalsIgnoreCase(searchCriteria) ||
-        type.equalsIgnoreCase(searchCriteria) ||
-        format.equalsIgnoreCase(searchCriteria);
+        Publisher.equalsIgnoreCase(searchCriteria);
     }
 // same deal but exclusively for isbn for when returning a book
     public boolean SelectedItem(String searchCriteria){
@@ -68,23 +42,22 @@ public class LibraryItem {
     }
 
     // allows to edit a library
-    public String EditLibrary(String title, String ISBN, String publisher, int availableCopies, String type, String format){
-        this.type = type;
-        this.title = title;
+    public String EditLibrary(String title, String ISBN, String publisher, int availableCopies, String format){
+        this.Title = title;
         this.ISBN = ISBN;
-        this.publisher = publisher;
-        this.availableCopies = availableCopies;
-        this.format = format;
-        return(this.title + "'s details have been updated.");
+        this.Publisher = publisher;
+        this.AvailableCopies = availableCopies;
+        this.Format = format;
+        return(this.Title + "'s details have been updated.");
     }
 
     public String DeleteLibrary(){
-        this.type = null;
-        this.title = null;
+        this.Title = null;
         this.ISBN = null;
-        this.publisher = null;
-        this.availableCopies = 0;
-        this.format = null;
+        this.Publisher = null;
+        this.AvailableCopies = 0;
+        this.Format = null;
+        FullStock.remove(this);
         return("Item has been removed from the library.");
     }
 
@@ -92,45 +65,45 @@ public class LibraryItem {
         if(this.ISBN ==null){
             return("This item does not exist.");
         }else{
-            return("Item Details: " + this.title + ", " + this.ISBN + ", " + this.publisher + ", " + this.availableCopies + ", " + this.type + ", " + this.format + ".");
+            return("Item Details: " + this.Title + ", " + this.ISBN + ", " + this.Publisher + ", " + this.AvailableCopies + ", " + this.Format + ".");
         }
 
     }
     // returns the stock of a library
     public static List<LibraryItem> GetFullStock(){
-        return fullStock;
+        return FullStock;
     }
 
     public String GetGeneralInfo(){
-        return "Title: " + title + ", ISBN: " + ISBN + ", publisher: " + publisher +
-               ", Copies: " + availableCopies + ", Type: " + type + ", Format: " + format;
+        return "Title: " + Title + ", ISBN: " + ISBN + ", publisher: " + Publisher +
+               ", Copies: " + AvailableCopies + ", Type: " + ", Format: " + Format;
     }
 
     public String GetTitle(){
-        return this.title;
+        return this.Title;
     }
 // looks at availble copies
     public int GetAvailability(){
-        return this.availableCopies;
+        return this.AvailableCopies;
     }
 // adds by one
     public String DecreaseAvailable(int amount){
-        if(this.availableCopies == 0){
+        if(this.AvailableCopies == 0){
             return("There are no more available copies.");
         }else{
-            if(amount > this.availableCopies){
+            if(amount > this.AvailableCopies){
                 return("Not enough copies to be borrowed.");
             }else{
-                this.availableCopies = this.availableCopies - amount;
-                return("Available copies for " + this.title + " has been decreased by "+ amount );
+                this.AvailableCopies = this.AvailableCopies - amount;
+                return("Available copies for " + this.Title + " has been decreased by "+ amount );
             }
           
         }
     }
 // decreases by one
     public String IncreaseAvailable(){
-        this.availableCopies = this.availableCopies +1;
-        return("Available copies for " + this.title + " has been increased by 1.");
+        this.AvailableCopies = this.AvailableCopies +1;
+        return("Available copies for " + this.Title + " has been increased by 1.");
     }
 
     public String GetISBN(){

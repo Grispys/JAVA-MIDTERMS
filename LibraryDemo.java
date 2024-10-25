@@ -10,12 +10,12 @@ public class LibraryDemo {
         Patron patron1 = new Patron("Drake Rose", "12 aberdeen", "958710", "student");
         Patron patron2 = new Patron("Drew Murphy", "101 wabbadook", "1431660", "employee");
 
-        LibraryItem hello = new LibraryItem("hello", "1121", "marcus", 5, "periodical", "digital");
-        LibraryItem its_a_me = new LibraryItem("its a me", "6432", "Douglas", 2, "book", "audio");
-        LibraryItem hello1 = new LibraryItem("hello3435", "166121", "marcus", 5, "periodical", "digital");
-        LibraryItem hello2 = new LibraryItem("hell2345o", "1177221", "Douglas", 5, "periodical", "digital");
+        Book hello = new Book("hello", "1121", "marcus", 5, "digital");
+        Book its_a_me = new Book("its a me", "6432", "Douglas", 2, "audio");
+        Periodical hello1 = new Periodical("hello3435", "166121", "marcus", 5, "digital");
+        Periodical hello2 = new Periodical("hell2345o", "1177221", "Douglas", 5, "physical");
         // this ones just to show that the format checks work
-        LibraryItem hello3 = new LibraryItem("hell264o", "112641", "marcus", 5, "periodical", "audio");
+        // Periodical hello3 = new Periodical("hell264o", "112641", "marcus", 5, "audio");
 
         // create the searching object
         librarySearch Searcher = new librarySearch();
@@ -50,8 +50,8 @@ public class LibraryDemo {
 
         System.out.println();
         System.out.println();
-        hello.EditLibrary("hellow", "232", "notmatthew", 0, "book", "physical");
-        hello2.EditLibrary("This is a story", "232426", "Douglas", 99, "book", "physical");
+        its_a_me.EditLibrary("hellow", "232", "notmatthew", 0, "physical");
+        hello2.EditLibrary("This is a story", "232426", "Douglas", 99, "physical");
         // check that it worked and delete an author
         author1.GetItems();
         author1.DeleteAuthor();
