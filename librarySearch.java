@@ -5,14 +5,14 @@ import java.util.Scanner;
 public class librarySearch {
     public void search(String searchCriteria, Patron name){
         boolean match = false;
-        for(LibraryItem item : LibraryItem.getFullStock()){
-            if(item.matchesCriteria(searchCriteria)){
+        for(LibraryItem item : LibraryItem.GetFullStock()){
+            if(item.MatchesCriteria(searchCriteria)){
                 System.out.println("Matches: " + item.GetInfo());
                 match = true;
             }
             
         }
-        name.selection();
+        name.Selection();
         if(!match){System.out.println("No matches found for : " + searchCriteria);}
     }
 
@@ -20,10 +20,10 @@ public class librarySearch {
     // is called to handle that.
     public void search(Patron name){
         System.out.println("You have borrowed: ");
-        List<LibraryItem> borrowedItemsList = name.getBorrowedItems();
+        List<LibraryItem> borrowedItemsList = name.GetBorrowedItems();
        
         for(LibraryItem item : borrowedItemsList){
-            System.out.println("    -" + item.getTitle() + "," + item.getISBN());
+            System.out.println("    -" + item.GetTitle() + "," + item.GetISBN());
         }
         @SuppressWarnings("resource")
         Scanner decider = new Scanner(System.in);
@@ -33,7 +33,7 @@ public class librarySearch {
         if(decision.equals("no")){
             System.out.println("Have a good day.");
         }else if(decision.equals("yes")){
-            name.returning();
+            name.Returning();
         }else{
             System.out.println("Please enter 'yes' or 'no'.");
         }

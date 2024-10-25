@@ -21,19 +21,19 @@ public class LibraryDemo {
         librarySearch Searcher = new librarySearch();
         
         // get patron info
-        System.err.println(patron1.getInfo());     
+        System.err.println(patron1.GetInfo());     
         // get book availability
-        System.out.println(its_a_me.getAvailability());
+        System.out.println(its_a_me.GetAvailability());
         
 
         
         // add items to the author stuff
-        author1.addItem(hello);
-        author1.addItem(its_a_me);
-        author1.getItems();
+        author1.AddItem(hello);
+        author1.AddItem(its_a_me);
+        author1.GetItems();
 
         // take items out of author
-        author1.removeItem(its_a_me);
+        author1.RemoveItem(its_a_me);
         System.out.println(hello.GetInfo());
         // edit the library items info
         System.out.println();
@@ -43,7 +43,7 @@ public class LibraryDemo {
         Searcher.search("marcus", patron1);
         Searcher.search("Marcus", patron1);
         // edit patron testing
-        patron1.editPatron("Drunk Nose", "43 notaberdeen ", "10494134", "student");
+        patron1.EditPatron("Drunk Nose", "43 notaberdeen ", "10494134", "student");
         Searcher.search("Douglas", patron2);
         Searcher.search("Marcus", patron1);
 
@@ -53,15 +53,15 @@ public class LibraryDemo {
         hello.EditLibrary("hellow", "232", "notmatthew", 0, "book", "physical");
         hello2.EditLibrary("This is a story", "232426", "Douglas", 99, "book", "physical");
         // check that it worked and delete an author
-        author1.getItems();
-        author1.deleteAuthor();
-        author1.getItems();
+        author1.GetItems();
+        author1.DeleteAuthor();
+        author1.GetItems();
         
         System.out.println();
         System.out.println();
         // delete user check
-        patron2.deletePatron();
-        System.out.println(patron2.getInfo());
+        patron2.DeletePatron();
+        System.out.println(patron2.GetInfo());
         System.out.println();
         // these searches look for books to be borrowed. the search method uses borrowItem method or removeItem method.
        

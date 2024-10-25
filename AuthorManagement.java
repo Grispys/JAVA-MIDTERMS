@@ -17,16 +17,16 @@ public class AuthorManagement {
     };
 
     // add item to their works
-    public void addItem(LibraryItem item){
+    public void AddItem(LibraryItem item){
         if(item !=null){
             items.add(item);
-            System.out.println("Added " + item.getTitle() + " to this authors bibliography.");
+            System.out.println("Added " + item.GetTitle() + " to this authors bibliography.");
         }else{
             System.err.println("Incorrect item to be added.");
         }
     }
 
-    public void getItems(){
+    public void GetItems(){
         if(this.name == null){
         System.err.println("This author does not exist.");
         }else if(this.items.isEmpty()){
@@ -35,24 +35,24 @@ public class AuthorManagement {
         }else{
             System.out.println("This author has written: ");
             for(LibraryItem item : items){
-                System.out.println("~ " + item.getTitle());
+                System.out.println("~ " + item.GetTitle());
             }
         }
         
     }
 
-    public void removeItem(LibraryItem item){
+    public void RemoveItem(LibraryItem item){
         items.remove(item);
-        System.out.println("Removed " + item.getTitle() + " from this authors bibliography.");
+        System.out.println("Removed " + item.GetTitle() + " from this authors bibliography.");
     }
 
-    public void deleteAuthor(){
+    public void DeleteAuthor(){
         this.name = null;
         this.DOB = null;
         this.items = null;
     }
 
-    public void editAuthor(String name, String DOB){
+    public void EditAuthor(String name, String DOB){
         this.name = name;
         this.DOB = DOB;
         System.out.println("Author details has been updated. To Change their written books, use addItem() or removeItem().");

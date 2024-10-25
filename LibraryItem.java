@@ -55,7 +55,7 @@ public class LibraryItem {
     }
 
 // criteria checker i used to find items when searching
-    public boolean matchesCriteria(String searchCriteria){
+    public boolean MatchesCriteria(String searchCriteria){
         return title.equalsIgnoreCase(searchCriteria) ||
         ISBN.equalsIgnoreCase(searchCriteria) ||
         publisher.equalsIgnoreCase(searchCriteria) ||
@@ -63,7 +63,7 @@ public class LibraryItem {
         format.equalsIgnoreCase(searchCriteria);
     }
 // same deal but exclusively for isbn for when returning a book
-    public boolean selectedItem(String searchCriteria){
+    public boolean SelectedItem(String searchCriteria){
         return ISBN.equalsIgnoreCase(searchCriteria);
     }
 
@@ -97,24 +97,24 @@ public class LibraryItem {
 
     }
     // returns the stock of a library
-    public static List<LibraryItem> getFullStock(){
+    public static List<LibraryItem> GetFullStock(){
         return fullStock;
     }
 
-    public String getGeneralInfo(){
+    public String GetGeneralInfo(){
         return "Title: " + title + ", ISBN: " + ISBN + ", publisher: " + publisher +
                ", Copies: " + availableCopies + ", Type: " + type + ", Format: " + format;
     }
 
-    public String getTitle(){
+    public String GetTitle(){
         return this.title;
     }
 // looks at availble copies
-    public int getAvailability(){
+    public int GetAvailability(){
         return this.availableCopies;
     }
 // adds by one
-    public String decreaseAvailable(int amount){
+    public String DecreaseAvailable(int amount){
         if(this.availableCopies == 0){
             return("There are no more available copies.");
         }else{
@@ -128,12 +128,12 @@ public class LibraryItem {
         }
     }
 // decreases by one
-    public String increaseAvailable(){
+    public String IncreaseAvailable(){
         this.availableCopies = this.availableCopies +1;
         return("Available copies for " + this.title + " has been increased by 1.");
     }
 
-    public String getISBN(){
+    public String GetISBN(){
         return this.ISBN;
     }
     
