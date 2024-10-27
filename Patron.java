@@ -3,11 +3,11 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Patron {
-    private String name;
-    private String address;
-    private String phoneNum;
-    private String patronType;
-    private List<LibraryItem> borrowedItemsList = new ArrayList<>();
+    protected String name;
+    protected String address;
+    protected String phoneNum;
+    protected String patronType;
+    protected List<LibraryItem> borrowedItemsList;
     // borrowItem and returnItem are PRIVATE methods instead of public so that in the libraryDemo,
     // they cannot be used freely. They're only called once a user searches and then decides to return or borrow.
 
@@ -62,11 +62,7 @@ public class Patron {
     }
 
 
-    public Patron(String name, String address, String phoneNum, String patronType){
-        if(!patronType.equals("student") && !patronType.equals("employee")){
-            System.err.println("Patron must be either a student or an employee.");
-            return;
-        } 
+    public Patron(String name, String address, String phoneNum, String patronType) {
         this.name = name;
         this.address = address;
         this.phoneNum = phoneNum;

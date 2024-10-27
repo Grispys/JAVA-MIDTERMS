@@ -21,7 +21,7 @@ public class LibraryDemo {
         librarySearch Searcher = new librarySearch();
         
         // get patron info
-        System.err.println(patron1.GetInfo());     
+        System.out.println(patron1.GetInfo());     
         // get book availability
         System.out.println(its_a_me.GetAvailability());
         
