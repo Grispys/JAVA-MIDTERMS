@@ -2,7 +2,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Patron {
+public abstract class Patron {
     protected String name;
     protected String address;
     protected String phoneNum;
@@ -125,6 +125,14 @@ public class Patron {
     }
 
     // returns the list of borroweditems
+    public String GetBorrowedItemsList(){
+        String result = (this.name + " has borrowed: ");
+        for (LibraryItem item : borrowedItemsList) {
+            result += ( item.ISBN + ", ");
+        }
+        return(result);
+    }
+
     public List<LibraryItem> GetBorrowedItems(){
         return borrowedItemsList;
     }

@@ -7,8 +7,8 @@ public class LibraryDemo {
         // constructor, and then also add the author to the book via that function. so i just have the function. please don't be mad at me :(
         AuthorManagement author1 = new AuthorManagement("Marcus","20-01-1999");
         AuthorManagement author2 = new AuthorManagement("Douglas","11-06-1980");
-        Patron patron1 = new Patron("Drake Rose", "12 aberdeen", "958710", "student");
-        Patron patron2 = new Patron("Drew Murphy", "101 wabbadook", "1431660", "employee");
+        StudentPatron patron1 = new StudentPatron("Drake Rose", "12 aberdeen", "958710");
+        EmployeePatron patron2 = new EmployeePatron("Drew Murphy", "101 wabbadook", "1431660");
 
         Book hello = new Book("hello", "1121", "marcus", 5, "digital");
         Book its_a_me = new Book("its a me", "6432", "Douglas", 2, "audio");
@@ -56,6 +56,8 @@ public class LibraryDemo {
         author1.GetItems();
         author1.DeleteAuthor();
         author1.GetItems();
+        // show that you can see their borrowed items list
+        System.out.println(patron1.GetBorrowedItemsList());
         
         System.out.println();
         System.out.println();
